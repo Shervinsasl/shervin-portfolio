@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
+import { IntroOverlay } from "@/components/IntroOverlay";
 import { ProjectCard } from "@/components/project-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,6 +15,30 @@ import { getFeaturedProjects } from "@/lib/projects";
 const featured = getFeaturedProjects();
 
 export default function HomePage() {
+  const [showIntro, setShowIntro] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const alreadyPlayed = sessionStorage.getItem("introPlayed") === "true";
+
+    if (reduceMotion.matches) {
+      sessionStorage.setItem("introPlayed", "true");
+      return;
+    }
+
+    if (!alreadyPlayed) {
+      setShowIntro(true);
+    }
+  }, []);
+
+  const handleIntroFinish = useCallback(() => {
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("introPlayed", "true");
+    }
+    setShowIntro(false);
+  }, []);
+
   const stackLayers = [
     { title: "Applications", detail: "Interfaces, APIs, orchestration" },
     { title: "Machine Learning", detail: "Models layered onto strong systems" },
@@ -21,7 +47,9 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-16 px-5 py-10 sm:px-8 sm:py-14">
+    <>
+      {showIntro && <IntroOverlay onFinish={handleIntroFinish} />}
+      <div className="mx-auto flex max-w-6xl flex-col gap-16 px-5 py-10 sm:px-8 sm:py-14">
       <section className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -240,6 +268,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
