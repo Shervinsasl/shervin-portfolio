@@ -89,26 +89,6 @@ export default function ProjectsPage() {
           </div>
         )}
       </motion.div>
-
-      <div className="grid gap-4 sm:grid-cols-3">
-        {projects.map((project) => (
-          <div
-            key={project.slug}
-            className="rounded-xl border border-border/70 bg-muted/40 px-4 py-3 text-sm text-muted-foreground"
-          >
-            <span className="text-xs uppercase tracking-[0.18em] text-foreground/70">
-              Stack
-            </span>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {project.stack.map((item) => (
-                <Badge key={item} variant="outline">
-                  {item}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }

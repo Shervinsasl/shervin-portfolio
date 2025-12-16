@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import Lottie from "lottie-react";
 
 import { IntroOverlay } from "@/components/IntroOverlay";
 import { ProjectCard } from "@/components/project-card";
@@ -11,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getFeaturedProjects } from "@/lib/projects";
+import laptopAnimation2 from "@/../public/animations/laptop_anim2.json";
 
 const featured = getFeaturedProjects();
 
@@ -38,13 +40,6 @@ export default function HomePage() {
     }
     setShowIntro(false);
   }, []);
-
-  const stackLayers = [
-    { title: "Applications", detail: "Interfaces, APIs, orchestration" },
-    { title: "Machine Learning", detail: "Models layered onto strong systems" },
-    { title: "Operating Systems", detail: "Processes, memory, scheduling" },
-    { title: "Hardware", detail: "I/O, buses, electrical realities" },
-  ];
 
   return (
     <>
@@ -226,15 +221,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="glass-panel grid gap-6 rounded-2xl p-6 lg:grid-cols-[1.3fr_0.7fr]">
-        <div className="space-y-3">
+      <section className="glass-panel grid items-center gap-6 rounded-2xl p-4 sm:p-5 lg:grid-cols-[1.5fr_1fr] lg:gap-7">
+        <div className="space-y-4 lg:space-y-5">
           <p className="text-sm font-semibold uppercase tracking-[0.15em] text-muted-foreground">
             Where I Add Leverage
           </p>
-          <h3 className="text-2xl font-semibold">
+          <h3 className="text-2xl font-semibold leading-tight">
             "Systems First Engineering With Room For Intelligence"
           </h3>
-          <p className="text-muted-foreground">
+          <p className="max-w-3xl text-base leading-relaxed text-muted-foreground">
             I build systems from the ground up understanding how software
             executes, how hardware behaves, and how real constraints shape
             design. I’m especially effective in performance sensitive,
@@ -242,30 +237,31 @@ export default function HomePage() {
             learning and data driven approaches can sit on top of well engineered
             systems.
           </p>
-        </div>
-        <div className="relative overflow-hidden rounded-xl border border-border/70 bg-gradient-to-br from-card/40 via-card/20 to-card/60 p-5">
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-primary/20 blur-2xl" />
-          <div className="relative grid grid-cols-2 gap-4 sm:gap-5">
-            <div className="pointer-events-none absolute inset-3 rounded-2xl border border-border/50" />
-            {stackLayers.map((layer) => {
-              return (
-                <div
-                  key={layer.title}
-                  className="relative flex min-h-[110px] items-center justify-center rounded-2xl border border-border/70 bg-gradient-to-br from-card/80 via-card/60 to-card/80 shadow-[0_12px_30px_-18px_rgba(0,0,0,0.5)]"
-                >
-                  <div className="absolute inset-0 rounded-2xl border border-primary/20" />
-                  <div className="relative flex flex-col items-center gap-1 px-3 text-center">
-                    <span className="text-sm font-semibold text-foreground">
-                      {layer.title}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {layer.detail}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="flex flex-wrap gap-2">
+            {[
+              "Systems & OS",
+              "Performance Sensitive Builds",
+              "Machine Learning Layers",
+              "Hardware Aware Design",
+            ].map((pill) => (
+              <span
+                key={pill}
+                className="rounded-full border border-border/60 bg-card/60 px-3 py-1 text-xs font-medium text-foreground/90 shadow-[0_6px_16px_-10px_rgba(0,0,0,0.45)]"
+              >
+                {pill}
+              </span>
+            ))}
           </div>
+        </div>
+        <div className="relative flex min-h-[240px] items-center justify-center overflow-hidden rounded-xl border border-border/70 bg-gradient-to-br from-card/50 via-card/25 to-card/60 p-4 shadow-[0_14px_40px_-20px_rgba(0,0,0,0.55)]">
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/12 via-transparent to-primary/20 blur-2xl" />
+          <div className="pointer-events-none absolute inset-2 rounded-2xl border border-primary/15" />
+          <Lottie
+            animationData={laptopAnimation2}
+            loop
+            autoplay
+            className="relative w-full max-w-[340px] sm:max-w-[400px]"
+          />
         </div>
       </section>
       </div>
