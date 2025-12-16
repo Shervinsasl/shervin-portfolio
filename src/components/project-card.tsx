@@ -17,9 +17,18 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
+      whileHover={{
+        scale: 1.015,
+        boxShadow: `0 22px 55px -28px ${project.accent}80`,
+      }}
+      whileTap={{ scale: 0.995 }}
       transition={{ delay: index * 0.05, type: "spring", stiffness: 260 }}
     >
-      <Link href={`/projects/${project.slug}`}>
+      <Link
+        href={`/projects/${project.slug}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Card className="group relative overflow-hidden border-border/70 transition hover:-translate-y-1 hover:border-primary/60 hover:shadow-2xl hover:shadow-primary/10">
           <div
             className="absolute inset-0 opacity-60"

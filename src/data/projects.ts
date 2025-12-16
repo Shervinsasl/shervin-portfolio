@@ -2,29 +2,29 @@ import { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
-    slug: "tower-defense-game",
-    title: "Tower Defense Game",
+    slug: "tower-defense",
+    title: "Tower Defense Engine",
     summary:
-      "Python game engine built from scratch with Pyglet, reusable tower/enemy classes, and YAML-configured levels.",
+      "Python-based 2D game engine with real-time simulation, configurable levels, and performance-aware rendering.",
     year: 2025,
-    tags: ["Game Dev", "Python"],
-    stack: ["Python", "Pyglet", "YAML", "OOP"],
-    accent: "#f59e0b",
+    tags: ["Game Systems", "Python", "OOP"],
+    stack: ["Python", "Pyglet", "YAML", "OOP", "Sprite Batching"],
+    accent: "#0ea5e9",
     featured: true,
     links: {
       repo: "https://github.com/Shervinssl",
     },
-    mdxFile: "tower-defense-game.mdx",
+    mdxFile: "tower-defense.mdx",
   },
   {
-    slug: "allexercises-platform",
+    slug: "allexercises",
     title: "AllExercises Platform",
     summary:
-      "Full-stack event coordination platform built with React and Django REST Framework with token-based auth.",
+      "Full-stack event coordination system with authenticated APIs, structured data models, and collaborative workflows.",
     year: 2025,
-    tags: ["Full Stack", "Web"],
-    stack: ["React", "Django", "Django REST Framework", "JWT"],
-    accent: "#22c55e",
+    tags: ["Full Stack", "Web Systems", "APIs"],
+    stack: ["React", "Django", "Django REST Framework", "JWT", "PostgreSQL"],
+    accent: "#10b981",
     featured: true,
     links: {
       repo: "https://github.com/Shervinssl",

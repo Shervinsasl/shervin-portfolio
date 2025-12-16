@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SystemFlowVisual } from "@/components/system-flow-visual";
 import { projects } from "@/data/projects";
 import { getMDXContent } from "@/lib/mdx";
 import { getProjectBySlug } from "@/lib/projects";
@@ -62,14 +63,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </Link>
             </Button>
           )}
-          {project.links.repo && (
-            <Button asChild variant="outline" className="gap-2 rounded-full">
-              <Link href={project.links.repo} target="_blank">
-                Code
-                <Github className="h-4 w-4" />
-              </Link>
-            </Button>
-          )}
         </div>
       </div>
 
@@ -101,21 +94,33 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               ))}
             </div>
           </div>
-          <div
-            className="glass-panel relative aspect-[4/3] overflow-hidden rounded-xl"
-            style={{
-              background: `radial-gradient(circle at 20% 20%, ${project.accent}26, transparent 30%), radial-gradient(circle at 80% 0%, ${project.accent}33, transparent 35%), linear-gradient(135deg, ${project.accent}1f, transparent 65%)`,
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-card/0 via-card/20 to-card/70" />
-            <div className="relative flex h-full flex-col justify-end p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Concept visual
-              </p>
-              <h3 className="text-xl font-semibold text-foreground">
-                Product-like dashboard surfaces
-              </h3>
+          <div className="space-y-4">
+            <div
+              className="relative overflow-hidden rounded-2xl border border-border/60 bg-gradient-to-br from-primary/12 via-card/80 to-card/70 px-5 py-5 text-sm text-foreground shadow-[0_16px_38px_-24px_rgba(0,0,0,0.65)] sm:px-6 sm:py-6"
+              style={{
+                boxShadow: `0 18px 46px -26px ${project.accent}88`,
+              }}
+            >
+              <div
+                className="absolute left-0 top-0 h-full w-1.5 sm:w-2"
+                style={{ background: project.accent }}
+              />
+              <div
+                className="absolute right-[-18%] top-[-18%] h-32 w-32 rounded-full blur-3xl opacity-30"
+                style={{ background: project.accent }}
+              />
+              <div className="relative space-y-2">
+                <p className="text-base font-semibold text-foreground">
+                  Design focus
+                </p>
+                <p className="text-muted-foreground">
+                  {project.slug === "allexercises"
+                    ? "Clear boundaries between React UI, authenticated APIs, and data models to keep collaboration predictable and changes low-risk."
+                    : "Performance-aware, modular structure with clear seams between simulation, rendering, and configuration so mechanics can evolve without refactoring core systems."}
+                </p>
+              </div>
             </div>
+            {project.slug === "allexercises" && <SystemFlowVisual />}
           </div>
         </CardContent>
       </Card>

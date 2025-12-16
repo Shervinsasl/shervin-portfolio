@@ -1,0 +1,14 @@
+# Tower Defense Engine
+
+## Overview
+Custom 2D tower defense engine written in Python with Pyglet. The goal is a clean, extensible architecture that keeps real-time simulation predictable while making it easy to add new content without touching core logic.
+
+## Technical Highlights
+- Object-oriented architecture for towers, enemies, projectiles, and levels
+- Grid-based collision, targeting, and path-based movement
+- Fixed-timestep game loop for consistent simulation
+- YAML-driven configuration for levels, enemies, and balance
+- Sprite batching and optimized rendering to maintain ~60 FPS
+
+## Design Focus
+Performance-aware, modular structure with strict separation of game logic from rendering so mechanics, balance, and assets can evolve without refactoring the engine core.
