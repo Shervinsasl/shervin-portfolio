@@ -1,0 +1,15 @@
+# Rover Control System
+
+## Overview
+Distributed embedded system with a Raspberry Pi acting as the primary controller (networking, coordination, camera stream) and an ESP32 handling low-level sensors and I/O. MQTT links the layers so commands and telemetry flow in real time.
+
+## Technical Highlights
+- Raspberry Pi–based system controller for coordination and networking
+- ESP32 firmware for ultrasonic sensors and low-level I/O
+- MQTT publish/subscribe messaging for commands and telemetry
+- Web-based dashboard for real-time control
+- Asynchronous, event-driven system design
+- Custom rover chassis fabrication
+
+## Design Focus
+Distributed system design with clear hardware–software boundaries and low-latency communication between the dashboard, Raspberry Pi, and ESP32.

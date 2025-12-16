@@ -35,10 +35,10 @@ export const projects: Project[] = [
     slug: "twisted-snake",
     title: "Twisted Snake",
     summary:
-      "3D take on Snake with free camera control, AI enemies, dynamic lighting, and shader-driven effects in Three.js.",
+      "Interactive 3D game built with custom camera systems, real-time rendering, and shader-driven visuals.",
     year: 2024,
-    tags: ["3D", "Game Dev"],
-    stack: ["JavaScript", "Three.js", "WebGL", "Shaders"],
+    tags: ["3D Graphics", "Three.js", "Real-Time Systems"],
+    stack: ["JavaScript", "Three.js", "WebGL", "Shaders", "Pointer Lock"],
     accent: "#6366f1",
     featured: false,
     links: {
@@ -47,19 +47,19 @@ export const projects: Project[] = [
     mdxFile: "twisted-snake.mdx",
   },
   {
-    slug: "esp32-rover-dashboard",
-    title: "ESP32 Rover Dashboard",
+    slug: "rover-control",
+    title: "Rover Control System",
     summary:
-      "Hackathon build with React UI + Node backend controlling an ESP32 rover over MQTT with live video and sensors.",
+      "Distributed embedded system using a Raspberry Pi and ESP32 for real-time control, telemetry, and sensor integration.",
     year: 2024,
-    tags: ["IoT", "Robotics"],
+    tags: ["Embedded Systems", "IoT", "Distributed Systems"],
     stack: ["React", "Node.js", "MQTT", "ESP32", "MicroPython", "Raspberry Pi"],
     accent: "#0ea5e9",
     featured: false,
     links: {
       repo: "https://github.com/Shervinssl",
     },
-    mdxFile: "esp32-rover-dashboard.mdx",
+    mdxFile: "rover-control.mdx",
   },
 ];
 

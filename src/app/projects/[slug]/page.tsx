@@ -6,7 +6,9 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { MqttFlowVisual } from "@/components/mqtt-flow-visual";
 import { SystemFlowVisual } from "@/components/system-flow-visual";
+import { ThreeVisual } from "@/components/three-visual";
 import { projects } from "@/data/projects";
 import { getMDXContent } from "@/lib/mdx";
 import { getProjectBySlug } from "@/lib/projects";
@@ -116,11 +118,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <p className="text-muted-foreground">
                   {project.slug === "allexercises"
                     ? "Clear boundaries between React UI, authenticated APIs, and data models to keep collaboration predictable and changes low-risk."
-                    : "Performance-aware, modular structure with clear seams between simulation, rendering, and configuration so mechanics can evolve without refactoring core systems."}
+                    : project.slug === "twisted-snake"
+                      ? "Real-time systems thinking with modular camera, simulation, and rendering so visuals stay responsive without sacrificing performance."
+                      : project.slug === "rover-control"
+                        ? "Distributed system design with clear hardware–software boundaries and low-latency communication between the dashboard, Raspberry Pi controller, and ESP32 peripherals."
+                        : "Performance-aware, modular structure with clear seams between simulation, rendering, and configuration so mechanics can evolve without refactoring core systems."}
                 </p>
               </div>
             </div>
             {project.slug === "allexercises" && <SystemFlowVisual />}
+            {project.slug === "twisted-snake" && <ThreeVisual />}
+            {project.slug === "rover-control" && <MqttFlowVisual />}
           </div>
         </CardContent>
       </Card>
