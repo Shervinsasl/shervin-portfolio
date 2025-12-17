@@ -82,7 +82,7 @@ export default function HomePage() {
             </Button>
             <div className="flex gap-2">
               <Button variant="ghost" size="icon" asChild>
-                <Link href="https://github.com/Shervinssl" target="_blank">
+                <Link href="https://github.com/Shervinsasl" target="_blank">
                   <Github className="h-5 w-5" />
                 </Link>
               </Button>

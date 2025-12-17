@@ -12,7 +12,7 @@ export const projects: Project[] = [
     accent: "#0ea5e9",
     featured: true,
     links: {
-      repo: "https://github.com/Shervinssl",
+      repo: "https://github.com/Shervinsasl",
     },
     mdxFile: "tower-defense.mdx",
   },
@@ -27,7 +27,7 @@ export const projects: Project[] = [
     accent: "#10b981",
     featured: true,
     links: {
-      repo: "https://github.com/Shervinssl",
+      repo: "https://github.com/Shervinsasl",
     },
     mdxFile: "allexercises-platform.mdx",
   },
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     accent: "#6366f1",
     featured: false,
     links: {
-      repo: "https://github.com/Shervinssl",
+      repo: "https://github.com/Shervinsasl",
     },
     mdxFile: "twisted-snake.mdx",
   },
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     accent: "#0ea5e9",
     featured: false,
     links: {
-      repo: "https://github.com/Shervinssl",
+      repo: "https://github.com/Shervinsasl",
     },
     mdxFile: "rover-control.mdx",
   },

@@ -259,7 +259,7 @@ export default function ContactPage() {
                 </span>
               </a>
               <a
-                href="https://github.com/Shervinssl"
+                href="https://github.com/Shervinsasl"
                 target="_blank"
                 rel="noreferrer"
                 className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border/70 bg-muted/30 px-4 py-3 transition hover:border-primary/70"
@@ -269,7 +269,7 @@ export default function ContactPage() {
                   <span className="font-medium text-foreground">GitHub</span>
                 </span>
                 <span className="truncate text-muted-foreground">
-                  github.com/Shervinssl
+                  github.com/Shervinsasl
                 </span>
               </a>
             </div>

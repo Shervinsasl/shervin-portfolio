@@ -31,7 +31,7 @@ export function SiteFooter() {
               LinkedIn
             </a>
             <a
-              href="https://github.com/Shervinssl"
+              href="https://github.com/Shervinsasl"
               target="_blank"
               rel="noreferrer"
               className="rounded-full border border-border/70 px-4 py-2 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-primary/70"
