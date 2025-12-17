@@ -12,7 +12,7 @@ export default function AboutPage() {
           I Build Systems End to End
         </h1>
         <p className="text-lg text-muted-foreground sm:text-xl">
-          I&apos;m a UCLA Computer Science student (Graduating May 2026) with hands on builds across
+          I&apos;m a UCLA Computer Science student (Graduating December 2026) with hands on builds across
           software and embedded systems. I move between software engineering, graphics,
           and hardware: C/C++, Python, JavaScript/React/Three.js, plus ESP32/Arduino/Raspberry Pi,
           MQTT, and KiCad. Recent work includes a real time 3D Snake game with camera

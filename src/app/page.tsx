@@ -57,7 +57,7 @@ export default function HomePage() {
             circuits.
           </h1>
           <p className="max-w-2xl text-lg text-muted-foreground">
-            I am a Computer Science undergraduate at UCLA, graduating in May
+            I am a Computer Science undergraduate at UCLA, graduating in December
             2026, with a strong foundation across both software and hardware
             systems. My experience spans high-level software development,
             operating systems, and computer architecture, as well as low-level
