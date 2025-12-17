@@ -43,9 +43,6 @@ export function SiteFooter() {
         <Separator />
         <div className="flex flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <span>© {new Date().getFullYear()} Shervin Shahidi</span>
-          <span className="text-xs">
-            Built with Next.js, Tailwind CSS, shadcn/ui, and Framer Motion.
-          </span>
         </div>
       </div>
     </footer>
