@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   description:
     "A modern, product-focused developer portfolio showcasing projects, experiments, and contact information.",
   metadataBase: new URL("http://localhost:3000"),
+  icons: {
+    icon: "/icon.png",
+  },
   openGraph: {
     title: "Shervin | Developer Portfolio",
     description:
