@@ -91,15 +91,12 @@ export function SiteHeader() {
                         href={link.href}
                         onClick={() => setOpen(false)}
                         className={cn(
-                          "flex items-center justify-between rounded-lg border border-transparent px-3 py-2 text-base font-medium transition hover:border-border/80 hover:bg-muted/60",
+                          "flex items-center gap-2 rounded-lg border border-transparent px-3 py-2 text-base font-medium transition hover:border-border/80 hover:bg-muted/60",
                           pathname.startsWith(link.href) &&
                             "border-border/80 bg-muted/50 text-foreground"
                         )}
                       >
                         <span>{link.label}</span>
-                        <span className="text-xs text-muted-foreground">
-                          {index + 1 < 10 ? `0${index + 1}` : index + 1}
-                        </span>
                       </Link>
                     </motion.div>
                   ))}
