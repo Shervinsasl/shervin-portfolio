@@ -1,111 +1,110 @@
-import { Badge } from "@/components/ui/badge";
+import { Reveal } from "@/components/Reveal";
 import { Card, CardContent } from "@/components/ui/card";
-
-const experience = [
-  {
-    title: "President, Computer Science Club",
-    company: "Irvine Valley College",
-    timeframe: "Sep 2023 — May 2024",
-    description:
-      "Led weekly coding sessions in C++ and Python, built quizzes/tutorials, and coordinated communication for 100 students and faculty.",
-  },
-  {
-    title: "Analog & Embedded Systems",
-    company: "Coursework + Independent",
-    timeframe: "2024 — Present",
-    description:
-      "ESP32 builds with ultrasonic sensors and PWM motor control, plus MOSFET/BJT analysis, RC/RLC modeling, and beginner PCB design in KiCad.",
-  },
-];
 
 export default function AboutPage() {
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-10 px-5 py-10 sm:px-8 sm:py-14">
-      <div className="space-y-4">
+      <Reveal className="space-y-4">
         <p className="text-sm font-semibold uppercase tracking-[0.15em] text-muted-foreground">
           About
         </p>
-        <h1 className="text-3xl font-semibold">Building with intent</h1>
+        <h1 className="text-3xl font-semibold">I build systems end-to-end</h1>
         <p className="text-lg text-muted-foreground">
-          I&apos;m Shervin Shahidi, a UCLA computer science student (expected
-          May 2026) who likes blending software with hardware. My recent work
-          spans Pyglet game engines, Three.js experiments, React + Django apps,
-          and ESP32 robotics.
+          I&apos;m Shervin Shahidi, a Computer Science student at UCLA (expected May 2026).
+          I like taking ideas from UI to low-level: Three.js games with real-time camera
+          control, React + Django REST platforms, and embedded builds on ESP32/Arduino
+          with MQTT, sensors, and PWM motor control.
         </p>
-      </div>
+      </Reveal>
 
-      <Card className="border-border/70 bg-card/70">
-        <CardContent className="space-y-4 p-6">
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="outline">Python</Badge>
-            <Badge variant="outline">JavaScript</Badge>
-            <Badge variant="outline">C/C++</Badge>
-            <Badge variant="outline">React</Badge>
-            <Badge variant="outline">Django REST Framework</Badge>
-            <Badge variant="outline">Three.js</Badge>
-            <Badge variant="outline">Node.js</Badge>
-            <Badge variant="outline">MQTT</Badge>
-            <Badge variant="outline">MicroPython</Badge>
-            <Badge variant="outline">ESP32</Badge>
-            <Badge variant="outline">KiCad</Badge>
-            <Badge variant="outline">Git</Badge>
-          </div>
-          <p className="text-muted-foreground">
-            I like end-to-end builds: define the constraints, prototype quickly,
-            and ship something that feels real—whether it&apos;s a web app, a
-            3D experiment, or an embedded demo.
-          </p>
-        </CardContent>
-      </Card>
-
-      <div className="grid gap-4 sm:grid-cols-3">
-        {[
-          {
-            label: "What I value",
-            text: "Clear documentation, feedback loops, and learning by building.",
-          },
-          {
-            label: "How I work",
-            text: "Break problems down, pair up when blocked, and iterate visibly.",
-          },
-          {
-            label: "Where I help",
-            text: "Full-stack web apps, game/graphics experiments, and embedded prototypes.",
-          },
-        ].map((item) => (
-          <div
-            key={item.label}
-            className="rounded-xl border border-border/70 bg-muted/40 px-4 py-3"
-          >
-            <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              {item.label}
+      <Reveal highlight>
+        <Card className="border-border/70 bg-card/70">
+          <CardContent className="space-y-3 p-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              What I build
             </p>
-            <p className="mt-2 text-sm text-foreground">{item.text}</p>
-          </div>
-        ))}
+            <ul className="space-y-2 text-sm text-foreground">
+              <li className="leading-relaxed">
+                3D Snake game with real-time graphics, camera transforms, and input loops.
+              </li>
+              <li className="leading-relaxed">
+                Python tower defense engine tuned for performance and predictable simulation.
+              </li>
+              <li className="leading-relaxed">
+                Embedded prototypes with MQTT messaging, PWM motor control, and sensor feedback.
+              </li>
+            </ul>
+          </CardContent>
+        </Card>
+      </Reveal>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <Reveal highlight>
+          <Card className="border-border/70 bg-card/70">
+            <CardContent className="space-y-3 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                How I think
+              </p>
+              <p className="text-sm text-foreground">
+                I break problems into systems, prototype early, and iterate with real constraints.
+                I enjoy tracing how UI changes hit APIs, event loops, rendering pipelines, and
+                hardware limits.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Comfortable across C/C++, Python, JavaScript/TypeScript, React, Django, Three.js,
+                and embedded tools like ESP32, MicroPython, MQTT, and KiCad.
+              </p>
+            </CardContent>
+          </Card>
+        </Reveal>
+
+        <Reveal highlight delay={0.05}>
+          <Card className="border-border/70 bg-card/70">
+            <CardContent className="space-y-3 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Interests
+              </p>
+              <p className="text-sm text-foreground">
+                I&apos;m actively learning machine learning and AI, focused on how intelligent
+                models integrate into real systems—interactive apps, systems engineering, and
+                robotics/embedded contexts.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Building the math and systems foundations now; aiming to apply ML in grounded,
+                system-aware ways rather than as a bolt-on feature.
+              </p>
+            </CardContent>
+          </Card>
+        </Reveal>
       </div>
 
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold">Experience</h2>
-        <div className="grid gap-3">
-          {experience.map((item) => (
-            <div
-              key={item.title}
-              className="glass-panel grid gap-2 rounded-xl p-4 sm:grid-cols-[1.2fr_0.8fr]"
-            >
-              <div>
-                <p className="text-sm font-semibold text-muted-foreground">
-                  {item.timeframe}
-                </p>
-                <p className="text-lg font-semibold">
-                  {item.title} @ {item.company}
-                </p>
-              </div>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Reveal highlight>
+        <Card className="border-border/70 bg-card/70">
+          <CardContent className="flex flex-col gap-2 p-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Languages
+            </p>
+            <p className="text-sm text-foreground">
+              Fluent in English, Turkish, and Farsi.
+            </p>
+          </CardContent>
+        </Card>
+      </Reveal>
+
+      <Reveal highlight>
+        <Card className="border-border/70 bg-card/70">
+          <CardContent className="space-y-2 p-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              Looking ahead
+            </p>
+            <p className="text-sm text-foreground">
+              Actively seeking Software Engineering and Embedded/Systems internships. I add value
+              where teams need ownership across layers, clear reasoning, and systems thinking—not
+              just surface-level features.
+            </p>
+          </CardContent>
+        </Card>
+      </Reveal>
     </div>
   );
 }
