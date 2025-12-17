@@ -15,7 +15,7 @@ export function IntroOverlay({ onFinish }: IntroOverlayProps) {
   const zoomControls = useAnimationControls();
   const lottieRef = useRef<LottieRefCurrentProps>(null);
   const finishedRef = useRef(false);
-  const timeoutRef = useRef<number>();
+  const timeoutRef = useRef<number | null>(null);
 
   const completeSequence = useCallback(async () => {
     if (finishedRef.current) return;
@@ -56,8 +56,9 @@ export function IntroOverlay({ onFinish }: IntroOverlayProps) {
 
     return () => {
       window.clearTimeout(fallbackTimer);
-      if (timeoutRef.current) {
+      if (timeoutRef.current !== null) {
         window.clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
       }
       if (ref) {
         ref.destroy();
