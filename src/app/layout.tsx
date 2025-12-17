@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
   icons: {
     icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   openGraph: {
     title: "Shervin | Developer Portfolio",
