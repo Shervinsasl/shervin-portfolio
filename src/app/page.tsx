@@ -157,7 +157,7 @@ export default function HomePage() {
               <Badge className="bg-primary/15 text-primary">Focus</Badge>
               <span className="text-sm text-muted-foreground">2025</span>
             </div>
-            <h3 className="text-2xl font-semibold">End-to-end systems engineering</h3>
+            <h3 className="text-2xl font-semibold">End to End Systems Engineering</h3>
             <p className="text-muted-foreground">
               Building software with an understanding of how it executes from
               high-level application logic and APIs down to operating systems,

@@ -1,7 +1,55 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 import { Reveal } from "@/components/Reveal";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function AboutPage() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const max = el.scrollWidth - el.clientWidth;
+      if (max <= 0) {
+        setProgress(0);
+        return;
+      }
+      setProgress(Math.min(100, Math.max(0, (el.scrollLeft / max) * 100)));
+    };
+
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    const onResize = () => update();
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      el.removeEventListener("scroll", update);
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
+  const nudge = (direction: "left" | "right") => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const delta = el.clientWidth * 0.8;
+    el.scrollBy({ left: direction === "left" ? -delta : delta, behavior: "smooth" });
+  };
+
+  const handleBarClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const pct = (event.clientX - rect.left) / rect.width;
+    const max = el.scrollWidth - el.clientWidth;
+    el.scrollTo({ left: max * pct, behavior: "smooth" });
+  };
+
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-10 px-5 py-10 sm:px-8 sm:py-14">
       <Reveal className="space-y-4">
@@ -32,7 +80,10 @@ export default function AboutPage() {
                 Swipe or scroll →
               </span>
             </div>
-            <div className="flex gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
+            <div
+              ref={carouselRef}
+              className="flex gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
+            >
               {[
                 {
                   title: "3D Snake",
@@ -67,6 +118,37 @@ export default function AboutPage() {
                   </p>
                 </div>
               ))}
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 shrink-0 rounded-full"
+                onClick={() => nudge("left")}
+              >
+                ‹
+              </Button>
+              <div
+                className="relative h-2 flex-1 cursor-pointer rounded-full bg-muted/50"
+                onClick={handleBarClick}
+              >
+                <div
+                  className="absolute inset-y-0 rounded-full bg-primary/50"
+                  style={{ width: `${progress}%` }}
+                />
+                <div
+                  className="absolute top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_12px_-4px_rgba(59,130,246,0.8)] transition"
+                  style={{ left: `calc(${progress}% - 6px)` }}
+                />
+              </div>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8 shrink-0 rounded-full"
+                onClick={() => nudge("right")}
+              >
+                ›
+              </Button>
             </div>
           </CardContent>
         </Card>
