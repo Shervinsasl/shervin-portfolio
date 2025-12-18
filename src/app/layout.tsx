@@ -48,7 +48,7 @@ export default function RootLayout({
       <body
         className={`${sans.variable} ${mono.variable} min-h-screen bg-background text-foreground antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider>
           <div className="relative isolate flex min-h-screen flex-col">
             <div className="pointer-events-none absolute inset-0 -z-10 blur-3xl">
               <div className="absolute left-[10%] top-[10%] h-56 w-56 rounded-full bg-gradient-to-r from-cyan-400/40 to-blue-600/30 dark:from-cyan-500/30 dark:to-blue-500/20" />
